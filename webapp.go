@@ -8,7 +8,7 @@ import (
 
 func handler(w http.ResponseWriter, r *http.Request){
 
-	fmt.Fprintln(w, "Guessing game")//print out to the page
+	fmt.Fprintf(w, "<div><h1>%s</h1></div>","Guessing game")//print out to the page
 	
 }
 
