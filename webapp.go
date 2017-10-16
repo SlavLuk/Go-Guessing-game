@@ -3,14 +3,25 @@ package main
 import (
 	
 	"net/http"
-	"fmt"
+	"html/template"
 )
+
+type Page struct{
+
+	Title string
+}
 
 func handler(w http.ResponseWriter, r *http.Request){
 
-	fmt.Fprintf(w, "<div><h1>%s</h1></div>","Guessing game")//print out to the page
+ var p= &Page{Title:"Guessing game"}//assign title
+ 
+ t,_ := template.ParseFiles("home.html")//parse html page
+
+	t.Execute(w,p)
 	
 }
+
+
 
 func main(){
 
