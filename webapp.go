@@ -8,12 +8,12 @@ import (
 
 type Page struct{
 
-	Title string
+	Message string
 }
 
 func handler(w http.ResponseWriter, r *http.Request){
 
- var p= &Page{Title:"Guessing game"}//assign title
+ var p= &Page{Message:"Guessing game"}//assign title
  
  t,_ := template.ParseFiles("home.html")//parse html page
 
@@ -23,8 +23,8 @@ func handler(w http.ResponseWriter, r *http.Request){
 
 func guessHandler(w http.ResponseWriter, r *http.Request){
 
-	var p = &Page{Title:"Guess a number between 1 and 20"}
-	t,_ := template.ParseFiles("guess.html")//parse html page
+	var p = &Page{Message:"Guess a number between 1 and 20"}
+	t,_ := template.ParseFiles("guess.tmpl")//parse html page
 	t.Execute(w,p)
 }
 
