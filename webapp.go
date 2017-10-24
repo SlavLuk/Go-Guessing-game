@@ -8,17 +8,20 @@ import (
 	"math/rand"
 	"log"
 	"strconv"
+	//"net/url"
 
 )
 
 type Page struct{
 
 	Message string
+	Guess int
+	Link string
 }
 
 func handler(w http.ResponseWriter, r *http.Request){
 
- var p= &Page{Message:"Guessing game"}//assign title
+ p := &Page{Message:"Guessing game"}//assign title
  
  t,_ := template.ParseFiles("home.html")//parse html page
 
@@ -29,6 +32,7 @@ func handler(w http.ResponseWriter, r *http.Request){
 func guessHandler(w http.ResponseWriter, r *http.Request){
 
 	var cookievalue string
+	var g int
 
 	randNum := rand.New(rand.NewSource(time.Now().UnixNano())).Intn(20)+1//generate random 1 <= number <= 20 
 	
@@ -53,9 +57,22 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 	
 		http.SetCookie(w,&cookieNew)//set cookie
 	}
-    
+
+	 urlVar :=r.URL.Query().Get("guess")//get guess value from input
+
+
+	 if len(urlVar) == 0{//check if guess is set
+
+		 urlVar = "0"//set to 0
+	}
+
 	p := &Page{Message:"Guess a number between 1 and 20"}//create struct Page
 
+
+	g,_ = strconv.Atoi(urlVar)//convert string to int
+	  
+	p.Guess = g//assign int to struct var guess
+	
 	t,_ := template.ParseFiles("guess.tmpl")//parse html page
 	t.Execute(w,p)
 }

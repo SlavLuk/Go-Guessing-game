@@ -3,7 +3,7 @@
   <head>
   <style>
   
-  h2,form{
+  h2,form,p{
   
   padding:15px;
   width:50%;
@@ -24,16 +24,18 @@
 	
 	<form action="./guess" method="get">
 	
-	<fieldset>
 	
   <div class="form-group">
     <label for="guess">Guess</label>
-    <input type="text" class="form-control" id="guess" aria-describedby="emailHelp" placeholder="Enter guess">
+    <input type="text" class="form-control" name = "guess" id="guess" aria-describedby="emailHelp" placeholder="Enter guess">
    
   </div> 
   <button type="submit" class="btn btn-primary">Guess</button>
-  </fieldset>
+ 
 </form>
+
+<p>You guessed {{.Guess}}</p>
+<h2>{{.Link}}</h2>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
