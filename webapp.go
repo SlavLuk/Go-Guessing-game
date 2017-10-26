@@ -48,7 +48,7 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 
 	
 
-	cookie,err:= r.Cookie("target")//get cookie named target
+	cookie,err:= r.Cookie("target")//get cookie named 'target'
 
 	if err !=nil{
 
@@ -70,7 +70,8 @@ func guessHandler(w http.ResponseWriter, r *http.Request){
 		http.SetCookie(w,&cookieNew)//set cookie
 	}
 
-	 urlVal :=r.URL.Query().Get("guess")//get guess value from input
+
+		urlVal := r.FormValue("guess")//get guess value from input form
 
 
 	 if len(urlVal) == 0{//check if guess is set
