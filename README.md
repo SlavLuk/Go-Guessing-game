@@ -1,4 +1,7 @@
-# Go-Web-applications
+
+<snippet>
+  <content><![CDATA[
+# ${Go-Web-applications}
 1.Guessing game 
 In order to examine the response, including the headers, using curl.
 curl --verbose http://www.myWebSite.com
@@ -12,3 +15,6 @@ You can clone your repository to create a local copy on your computer and sync b
 ##5.Change the current working directory to the location where you want the cloned directory to be made. ##6.Type git clone, and then paste the URL you copied in ##Step 2.
 
 git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY Press Enter. Your local clone will be created.
+]]></content>
+  <tabTrigger>readme</tabTrigger>
+</snippet>
