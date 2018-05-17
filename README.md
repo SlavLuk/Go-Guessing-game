@@ -1,4 +1,4 @@
-# Go-Web-applications
+# Go-Guessing-game
 1.Guessing game 
 In order to examine the response, including the headers, using curl.
 curl --verbose http://www.myWebSite.com
